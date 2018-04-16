@@ -6,11 +6,13 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Log in</title>
+    <!-- STYLES -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="src/css/styles.css">
+    <!-- END STYLES -->
 </head>
 <body>
-
+    <!-- AUTH-BLOCK -->
     <div class="auth-block">
         <div class="auth-heading">
             Log in to the Site
@@ -20,7 +22,18 @@
         </div>
 
         <div class="auth-body">
-            <div class="social"></div>
+            <div class="social">
+                <div class="social-buttons">
+                    <button type="button" class="btn btn-block btn-facebook btn-lg">
+                        <i class="fab fa-facebook-f"></i>
+                        Log in with Facebook
+                    </button>
+                    <button type="button" class="btn btn-block btn-google btn-lg">
+                        <i class="fab fa-google-plus-g"></i>
+                        Log in with Google +
+                    </button>
+                </div>
+            </div>
             <div class="form"></div>
         </div>
 
@@ -28,8 +41,10 @@
             Don't have an account yet? <a href="#">Sign up</a>
         </div>
     </div>
+    <!-- END AUTH-BLOCK -->
 
-
+    <!-- SCRIPTS -->
     <script src="src/js/index.js"></script>
+    <!-- END SCRIPTS -->
 </body>
 </html>
