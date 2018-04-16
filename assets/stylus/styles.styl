@@ -1,5 +1,49 @@
 @import "/assets/stylus/variables"
 
-body
-  font: 12px/1.4 "Lucida Grande", Arial, sans-serif
-  color: $primary
+body {
+  font 12px/1.4 "Lucida Grande", Arial, sans-serif
+  margin 0
+}
+
+.auth-block {
+  padding: 20px;
+  border-top 2px solid $red
+
+  .auth-heading {
+    position relative
+    color $dark
+    font-size 30px
+    text-align center
+    padding 20px
+    font-weight 600
+
+    .close {
+      position absolute
+      background-color transparent
+      border 0
+      -webkit-appearance none
+      cursor pointer
+      top -10px
+      right 0
+      font-size 32px
+      color $grey
+      padding 0
+    }
+  }
+
+  .auth-body {
+    background-color $grey1
+  }
+
+  .auth-footer {
+    color $grey2
+    font-size 24px
+    text-align center
+    padding 20px
+
+    a {
+      color $dark
+      text-decoration underline
+    }
+  }
+}
