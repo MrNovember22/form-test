@@ -20,7 +20,7 @@ body {
   padding 20px 0
   border-top 2px solid $red
   width 65%
-  margin 5% auto
+  margin 15% auto
   background-color $white
 
   .auth-heading {
@@ -131,8 +131,9 @@ body {
       }
     }
 
-    @media (max-width 768px) {
-      flex-direction column-reverse
+    .divider {
+      border-right 1px solid $grey
+      margin 0 20px
     }
   }
 
@@ -145,6 +146,47 @@ body {
     a {
       color $dark
       text-decoration underline
+    }
+  }
+
+  @media (max-width 1199px) {
+    width 75%
+  }
+
+  @media (max-width 768px) {
+    width 65%
+
+    .auth-body {
+      flex-direction column-reverse
+      align-items center
+
+      .divider {
+        border-right 0
+        border-bottom  1px solid $grey
+        margin 30px 0
+        width calc(100% - 100px)
+      }
+    }
+  }
+
+  @media (max-width 575px) {
+    .auth-body {
+      .social,
+      .login-form {
+        width 100%
+      }
+
+      .divider {
+        width 100%
+      }
+    }
+  }
+
+  @media (max-width 425px) {
+    width 90%
+
+    .auth-body {
+      padding: 20px 15px;
     }
   }
 }
