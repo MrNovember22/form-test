@@ -84,6 +84,9 @@ body {
 .auth-block .auth-body .login-form .form .form-group a.help:hover {
   text-shadow: 0 -1px 1px rgba(0,0,0,0.15);
 }
+.auth-block .auth-body .login-form .form .form-group.has-error label {
+  color: #d32417;
+}
 .auth-block .auth-body .login-form .form .form-check {
   margin-bottom: 15px;
 }
@@ -216,4 +219,14 @@ input:active {
 input.input-lg {
   font-size: 20px;
   padding: 10px 16px;
+}
+.greetings {
+  font-size: 80px;
+  padding: 20px 0;
+  width: 65%;
+  margin: 15% auto;
+  text-align: center;
+}
+.help-block.form-error {
+  display: none;
 }

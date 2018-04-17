@@ -101,6 +101,12 @@ body {
               }
             }
           }
+
+          &.has-error {
+            label {
+              color darken($red, 10%)
+            }
+          }
         }
 
         .form-check {
@@ -272,5 +278,25 @@ input {
   &.input-lg {
     font-size 20px
     padding 10px 16px
+  }
+}
+
+
+
+// Greetings div
+.greetings {
+  font-size 80px
+  padding 20px 0
+  width 65%
+  margin 15% auto
+  text-align center
+}
+
+
+
+// Hide validation error messages
+.help-block{
+  &.form-error {
+    display none
   }
 }
