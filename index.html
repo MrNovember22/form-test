@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Log in</title>
+    <!-- STYLES -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="src/styles.css">
+    <!-- END STYLES -->
+</head>
+<body>
+    <!-- AUTH-BLOCK -->
+    <div class="auth-block">
+        <div class="auth-heading">
+            Log in to the Site
+            <button class="close">
+                <span>&times;</span>
+            </button>
+        </div>
+
+        <div class="auth-body">
+            <div class="social">
+                <div class="social-buttons">
+                    <button type="button" class="btn btn-block btn-facebook btn-lg">
+                        <i class="fab fa-facebook-f"></i>
+                        Log in with Facebook
+                    </button>
+                    <button type="button" class="btn btn-block btn-google btn-lg">
+                        <i class="fab fa-google-plus-g"></i>
+                        Log in with Google +
+                    </button>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="login-form">
+                <form class="form" id="login-form" method="POST">
+                    <div class="form-group">
+                        <label for="login">Login</label>
+                        <input type="text" class="input-lg" id="login" data-validation="length alphanumeric" data-validation-allowing="-_ ` " data-validation-length="min4">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="input-lg" id="password" data-validation="length" data-validation-length="min6">
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1" checked>
+                        <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-lg">Log in</button>
+                        <a href="#" class="help">Need help logging in?</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="auth-footer">
+            Don't have an account yet? <a href="#">Sign up</a>
+        </div>
+    </div>
+    <!-- END AUTH-BLOCK -->
+
+    <!-- SCRIPTS -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+    <script type="text/javascript">
+        function showGreetings() {
+            $('.auth-block').hide(); // Hide login form
+            $('body').html($('<div class="greetings">Hello </div>').append(localStorage.getItem('login') + ' !'));
+        }
+
+        function setLogin() {
+            return localStorage.setItem('login', $('#login').val()); // Save value of login input to local storage
+        }
+
+        $.validate({
+            borderColorOnError : 'transparent',
+
+            onSuccess : function() {
+                setLogin();
+                showGreetings(); // Show greetings div
+                return false;
+            }
+        });
+
+        if (localStorage.getItem('login') === null) {
+            $('.auth-block').show();
+        } else {
+            showGreetings();
+        }
+    </script>
+    <!-- END SCRIPTS -->
+</body>
+</html>
