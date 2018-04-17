@@ -8,7 +8,7 @@
     <title>Log in</title>
     <!-- STYLES -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="src/css/styles.css">
+    <link rel="stylesheet" href="src/styles.css">
     <!-- END STYLES -->
 </head>
 <body>
@@ -38,14 +38,14 @@
             <div class="divider"></div>
 
             <div class="login-form">
-                <form class="form">
+                <form class="form" id="login-form" method="POST">
                     <div class="form-group">
-                        <label for="login-input">Login</label>
-                        <input type="text" class="input-lg" id="login-input">
+                        <label for="login">Login</label>
+                        <input type="text" class="input-lg" id="login" data-validation="length alphanumeric" data-validation-allowing="-_ ` " data-validation-length="min4">
                     </div>
                     <div class="form-group">
-                        <label for="password-input">Password</label>
-                        <input type="password" class="input-lg" id="password-input">
+                        <label for="password">Password</label>
+                        <input type="password" class="input-lg" id="password" data-validation="length" data-validation-length="min6">
                     </div>
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="exampleCheck1" checked>
@@ -66,7 +66,34 @@
     <!-- END AUTH-BLOCK -->
 
     <!-- SCRIPTS -->
-    <script src="src/js/index.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+    <script type="text/javascript">
+        function showGreetings() {
+            $('.auth-block').hide(); // Hide login form
+            $('body').html($('<div class="greetings">Hello </div>').append(localStorage.getItem('login') + ' !'));
+        }
+
+        function setLogin() {
+            return localStorage.setItem('login', $('#login').val()); // Save value of login input to local storage
+        }
+
+        $.validate({
+            borderColorOnError : 'transparent',
+
+            onSuccess : function() {
+                setLogin();
+                showGreetings(); // Show greetings div
+                return false;
+            }
+        });
+
+        if (localStorage.getItem('login') === null) {
+            $('.auth-block').show();
+        } else {
+            showGreetings();
+        }
+    </script>
     <!-- END SCRIPTS -->
 </body>
 </html>
