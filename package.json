@@ -18,8 +18,8 @@
   },
   "homepage": "https://github.com/ss1lentt/form-test#readme",
   "devDependencies": {
-    "webpack": "^4.5.0",
-    "webpack-cli": "^2.0.14"
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
   },
   "dependencies": {
     "stylus": "^0.54.5"
